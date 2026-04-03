@@ -4,7 +4,7 @@ def binary_loss(Z, Y):
     # Retourne 0 si Z >= Y pour tous les pixels, sinon 1 
     return 0 if np.all(Z >= Y) else 1
     
-def threshold_binary_loss(Z, Y, tau):
+def threshold_binary_loss(Z, Y, tau=0.95):
     # Somme sur i,j,k pour compter les succès de couverture 
     ratio = np.sum(Z * Y) / np.sum(Y)
     return 0 if ratio >= tau else 1
